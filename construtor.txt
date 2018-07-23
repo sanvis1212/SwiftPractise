@@ -1,0 +1,96 @@
+
+// Without using constructor 
+
+import UIKit
+
+class ViewController: UIViewController {
+    
+    //MARK:- All Properties
+
+    var name: String?
+    var age: Int?
+    var salary: Double?
+    
+    //MARK:- View Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let test = ViewController()
+        test.name = "Sandeep"
+        test.age = 23
+        test.salary = 210000.78
+        
+        let  test2 = ViewController()
+        test2.name  = "Ayush"
+        test2.age = 23
+        test2.salary = 123476.5
+        
+        
+        
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    // MARK:- All Additional Function
+}
+
+
+------------------------------------------------------------------------------------------
+
+
+// By using constructor to inilize the property 
+
+//Benefit is reduce the code 
+
+
+
+// Without using constructor
+
+import UIKit
+
+class ViewController: UIViewController {
+    
+    //MARK:- All Properties
+
+    var name: String
+    var age: Int
+    var salary: Double
+    
+    init(name: String, age: Int, salary: Double) {
+        self.name = name
+        self.age = age
+        self.salary = salary
+    }
+    
+    //MARK:- View Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let test = ViewController(name: "Sandeep", age: 23, salary: 1123456.3)
+        
+        let  test2 = ViewController(name: "Ayush", age: 23, salary: 2345678.3)
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    // MARK:- All Additional Function
+}
+
+
+
+
+
+
+
+
+
+
+

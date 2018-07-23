@@ -1,0 +1,121 @@
+
+
+// Encapsulation and read only properties 
+
+import UIKit
+
+class ViewController: UIViewController {
+    
+    //MARK:- All Properties
+
+    
+    //MARK:- View Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let test = Employee(name: "Ayush")
+        print(test.nameOfEmp)
+        test.ageOfEmp = 24
+        print(test.ageOfEmp)
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    // MARK:- All Additional Function
+}
+
+class Employee {
+    
+    private var name: String
+    private var age: Int?
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    var nameOfEmp: String {
+        get {
+            return self.name
+        }
+    }
+    
+    var ageOfEmp:Int {
+        get {
+            return self.age!
+        }
+        set {
+            if newValue <= 0 {
+                print("Plz Enter the write age")
+            }
+            else {
+                self.age = newValue
+            }
+        }
+    }
+    
+}
+    
+------------------------------------------------------------------------------------------
+
+// Encapsulation and read and write properties
+
+//
+//  ViewController.swift
+//  FetchData
+
+import UIKit
+
+class ViewController: UIViewController {
+    
+    //MARK:- All Properties
+
+    
+    //MARK:- View Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let account = BankAccount()
+        account.Balence = 59.0
+        print(account.Balence)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    // MARK:- All Additional Function
+}
+
+class BankAccount {
+    
+    private var balence: Double = 0
+    
+    var Balence: Double {
+        get {
+            return self.balence
+        }
+        set {
+            if self.balence <= 0 {
+                print("Do not enter negetive")
+            }
+            else {
+                self.balence = Balence
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
