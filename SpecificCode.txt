@@ -1,0 +1,18 @@
+//Direct image show without alamofire image
+
+
+func setImage(url: URL?) {
+        if let u = url {
+            DispatchQueue.global(qos: .userInitiated).async {
+                do {
+                    let data = try Data.init(contentsOf: u)
+                    
+                    DispatchQueue.main.async {
+                        self.imageView.image = UIImage.init(data:data)
+                    }
+                } catch {
+                    print("Error getting image data.")
+                }
+            }
+        }
+    }
