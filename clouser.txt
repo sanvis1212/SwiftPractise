@@ -1,0 +1,63 @@
+// Clouser Practise
+import UIKit
+import Foundation
+
+class Student {
+    
+    internal var name = "Sandeep"
+    
+    func sayHi() {
+        print("Hello")
+    }
+    
+    deinit {
+        print("Good bye")
+    }
+}
+
+let clousr : () -> Void
+do {
+    let object = Student()
+    clousr = {object.sayHi()}
+    clousr()
+}
+
+clousr()
+
+let clsr : () -> Void
+do {
+    let objectt = Student()
+    clsr = {[weak objectt] in objectt?.sayHi()}
+    clsr()
+}
+
+clsr()
+
+let cr : () -> Void
+do {
+    let objt = Student()
+    cr = {[unowned objt] in objt.sayHi()}
+    cr()
+}
+
+func getData(urlString: String , callBack: @escaping (_ result: NSData?) -> Void) {
+    
+    guard let url = URL(string: urlString) else {
+        return
+    }
+    var request = URLRequest(url: url)
+    request.httpMethod = "GET"
+    
+    URLSession.shared.dataTask(with: request) { (data, response, error) in
+        if error == nil {
+            print(data ?? NSData())
+        }
+        callBack(data as NSData?)
+    }
+    
+}
+
+getData(urlString: "www.google.com") { (data) in
+
+}
+
