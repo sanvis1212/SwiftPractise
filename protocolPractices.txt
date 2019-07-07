@@ -1,0 +1,132 @@
+
+//Protocol practices
+
+import UIKit
+import Foundation
+
+protocol MyProtocol {
+    var mustBeSettable:  Int {get set}
+    var countt : Int {get}
+}
+
+protocol AnotherProtocol {
+    static var name: String {get set}
+    static var age: Int {get}
+}
+
+protocol Person {
+    var fullName: String{get}
+}
+
+struct Student : Person {
+    var fullName: String
+}
+
+let student = Student(fullName: "Aman")
+print(student.fullName)
+
+
+class Faculty : Person {
+    
+    var perfix: String
+    var name: String
+    
+    init(perfilx: String,name: String) {
+        self.perfix = perfilx
+        self.name = name
+    }
+    
+    var fullName: String {
+        return perfix + self.name
+    }
+    
+}
+
+let factlty = Faculty(perfilx: "Mr.", name: "Sandeep")
+print(factlty.fullName)
+
+struct Example : AnotherProtocol {
+
+    private static var myName = ""
+    private static var myAge = 0
+    
+    static var name: String {
+        get {
+            return Example.myName
+        }
+        set {
+            Example.myName = newValue
+        }
+    }
+    static var age: Int {
+        return Example.myAge
+    }
+    
+}
+
+print(Example.age)
+Example.name = "Ayush"
+print(Example.name)
+
+protocol SomeProtocol {
+     func random() -> Double
+}
+
+struct Sample: SomeProtocol {
+    
+    func random() -> Double {
+        let value = 878.34 + 434.343
+        return value
+    }
+}
+
+let sample = Sample()
+let result = sample.random()
+print(result)
+
+protocol SomeeProtocol {
+    static func ramdon() ->  Double
+}
+
+class Pxample : SomeeProtocol {
+    
+    static func ramdon() -> Double {
+        let result = 567.343 + 567.567
+        return result
+    }
+}
+let value = Pxample.ramdon()
+print(value)
+
+
+protocol Toggle {
+    mutating func toggle()
+}
+
+enum OnOffSwtich : Toggle {
+    case On,Off
+    
+    mutating func toggle() {
+        switch self {
+        case .On:
+            self = .Off
+        case .Off:
+            self = .On
+        default:
+            break
+        }
+    }
+}
+
+var light = OnOffSwtich.Off
+print(light.toggle())
+
+protocol SomeProtocolt {
+    init()
+}
+
+class Yxample :SomeProtocolt {
+    required init() {
+        
+    }
+}
