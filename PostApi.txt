@@ -1,0 +1,17 @@
+  
+    func postData() {
+        let urlString = "http://18.205.154.157:3000/api/student/student-login"
+        
+        Alamofire.request(urlString, method: .post, parameters: self.dict,encoding: JSONEncoding.default, headers: nil).responseJSON {
+            response in
+            switch response.result {
+            case .success:
+                print(response)
+                
+                break
+            case .failure(let error):
+                
+                print(error)
+            }
+        }
+    }
